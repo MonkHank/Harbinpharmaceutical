@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.seuic.hayao">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:name=".HYApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+
+        <uses-library android:name="android.scanner.library" />
+
+        <activity
+            android:name=".view.impl.LoginActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".device.BarCodeReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="com.android.server.scannerservice.hayao.broadcast"></action>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".service.UploadService$SyncOnConnectionAvailable">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".service.DeleteService$DeleteOnDateChange">
+            <intent-filter>
+                <action android:name="android.intent.action.DATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".service.UploadService" />
+        <service android:name=".service.DeleteService" />
+        <service android:name=".device.ScanService" />
+
+        <activity
+            android:name=".view.impl.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.impl.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.impl.StockInActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.impl.DataSyncActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.impl.BillManagerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.impl.StockOutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.impl.ReturnManagerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.impl.ModifyBillActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.impl.EditCommonUseActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

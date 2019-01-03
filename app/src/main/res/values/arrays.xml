@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="document_type">
+        <item>生产入库</item>
+        <item>采购入库</item>
+        <item>退货入库</item>
+        <item>零售入库</item>
+        <item>调拨入库</item>
+        <item>盘点盈余</item>
+    </string-array>
+</resources>

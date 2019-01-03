@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.impl.MainActivity">
+    <item
+        android:id="@+id/setting_update_address"
+        android:orderInCategory="100"
+        android:title="设置软件更新服务器地址"
+        app:showAsAction="never" />
+</menu>

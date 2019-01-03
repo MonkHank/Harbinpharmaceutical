@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".view.impl.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/out_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@android:color/white"
+                android:drawableTop="@drawable/out"
+                android:padding="5dp"
+                android:text="销售出库[1]"
+                android:textColor="#00bb9c"
+                android:textSize="20dp" />
+
+
+            <Button
+                android:id="@+id/in_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/white"
+                android:drawableTop="@drawable/in"
+                android:padding="5dp"
+                android:text="    采购入库[2]    "
+                android:textColor="#00bb9c"
+                android:textSize="20dp" />
+        </TableRow>
+
+        <TableRow android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/data_manager_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@android:color/white"
+                android:drawableTop="@drawable/danju"
+                android:padding="5dp"
+                android:text="单据管理[3]"
+                android:textColor="#00bb9c"
+                android:textSize="20dp" />
+
+
+            <Button
+                android:id="@+id/return_manager_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/white"
+                android:drawableTop="@drawable/tuihuo"
+                android:padding="5dp"
+                android:text="退货管理[4]"
+                android:textColor="#00bb9c"
+                android:textSize="20dp" />
+
+        </TableRow>
+
+        <TableRow android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/data_sync_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@android:color/white"
+                android:drawableTop="@drawable/shuju"
+                android:padding="5dp"
+                android:text="下载往来企业[5]"
+                android:textColor="#00bb9c"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/log_out_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/white"
+                android:drawableTop="@drawable/zhuxiao"
+                android:padding="5dp"
+                android:text="注销[0]"
+                android:textColor="#00bb9c"
+                android:textSize="20dp" />
+        </TableRow>
+
+    </TableLayout>
+
+</RelativeLayout>

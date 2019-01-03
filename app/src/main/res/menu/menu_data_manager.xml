@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.impl.BillManagerActivity">
+    <item
+        android:id="@+id/action_del"
+        android:icon="@drawable/del"
+        android:orderInCategory="100"
+        android:title="删除"
+        app:showAsAction="ifRoom" />
+</menu>

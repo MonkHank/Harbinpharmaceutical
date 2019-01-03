@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.impl.MainActivity">
+    <item
+        android:id="@+id/action_selected"
+        android:orderInCategory="100"
+        android:title="查看已选择的往来企业"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_unselected"
+        android:orderInCategory="100"
+        android:title="查看未选择的往来企业"
+        app:showAsAction="never" />
+</menu>
