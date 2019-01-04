@@ -16,22 +16,16 @@ public class MainPresenterImpl extends BasePresenter<MainView> implements MainPr
     private Subscription mSubscription1;
 
     public MainPresenterImpl(MainView view) {
+        super(view);
         mDataManager = DataManager.getInstance();
-        this.attachView(view);
-    }
-
-    @Override
-    public void attachView(MainView view) {
-        this.mMvpView = view;
     }
 
     @Override
     public void detachView() {
-        this.mMvpView = null;
+        super.detachView();
         if (mSubscription != null) mSubscription.unsubscribe();
         if (mSubscription1 != null) mSubscription1.unsubscribe();
     }
-
 
     @Override
     public void updataNumber() {

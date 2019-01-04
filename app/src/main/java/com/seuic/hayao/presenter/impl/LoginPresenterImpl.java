@@ -18,8 +18,8 @@ public class LoginPresenterImpl extends BasePresenter<LoginView> implements Logi
     private Subscription mSubscription1;
 
     public LoginPresenterImpl(LoginView view) {
+        super(view);
         mDataManager = DataManager.getInstance();
-        this.attachView(view);
     }
 
     @Override
@@ -95,13 +95,8 @@ public class LoginPresenterImpl extends BasePresenter<LoginView> implements Logi
     }
 
     @Override
-    public void attachView(LoginView view) {
-        this.mMvpView = view;
-    }
-
-    @Override
     public void detachView() {
-        this.mMvpView = null;
+        super.detachView();
         if (mSubscription != null) mSubscription.unsubscribe();
         if (mSubscription1 != null) mSubscription1.unsubscribe();
     }

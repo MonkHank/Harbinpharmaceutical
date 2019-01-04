@@ -679,33 +679,34 @@ public class DataManager {
     }
 
     public Observable<List<BillManagerShow>> queryAllBills() {
-
-        return mDataBaseHelper.getBillListByUserId(mCache.getLoginInfo().getUserId() + "").subscribeOn(Schedulers.newThread()).flatMap(new Func1<ArrayList<Bill>, Observable<Bill>>() {
-            @Override
-            public Observable<Bill> call(ArrayList<Bill> bills) {
-                return Observable.from(bills);
-            }
-        }).flatMap(new Func1<Bill, Observable<BillManagerShow>>() {
-            @Override
-            public Observable<BillManagerShow> call(final Bill bill) {
-                return Observable.zip(mDataBaseHelper.getBarcodeNumberByBillNumber(bill.getBillNumber()),
-                        mDataBaseHelper.getStoreTypeInfoById(bill.getStoreTypeId()),
-                        mDataBaseHelper.getCorpInfoById(bill.getContactCorpId()),
-                        new Func3<Integer, StoreTypeInfo, SmartCorpInfo, BillManagerShow>() {
-                            @Override
-                            public BillManagerShow call(Integer barcodes, StoreTypeInfo info, SmartCorpInfo corpInfo) {
-                                BillManagerShow show = new BillManagerShow();
-                                show.setBillNumber(bill.getBillNumber());
-                                show.setBillType(info.getStoreTypeText());
-                                show.setContactCorpName(corpInfo.getCorpName());
-                                show.setCodeNumber(barcodes + "");
-                                show.setIsUpload(bill.getIsUpload().equals("1"));
-                                show.setDate(bill.getGenerateTime().substring(0, 10));
-                                return show;
-                            }
-                        });
-            }
-        }).toList();
+        return mDataBaseHelper.getBillListByUserId(mCache.getLoginInfo().getUserId() + "")
+                .subscribeOn(Schedulers.newThread())
+                .flatMap(new Func1<ArrayList<Bill>, Observable<Bill>>() {
+                    @Override
+                    public Observable<Bill> call(ArrayList<Bill> bills) {
+                        return Observable.from(bills);
+                    }
+                }).flatMap(new Func1<Bill, Observable<BillManagerShow>>() {
+                    @Override
+                    public Observable<BillManagerShow> call(final Bill bill) {
+                        return Observable.zip(mDataBaseHelper.getBarcodeNumberByBillNumber(bill.getBillNumber()),
+                                mDataBaseHelper.getStoreTypeInfoById(bill.getStoreTypeId()),
+                                mDataBaseHelper.getCorpInfoById(bill.getContactCorpId()),
+                                new Func3<Integer, StoreTypeInfo, SmartCorpInfo, BillManagerShow>() {
+                                    @Override
+                                    public BillManagerShow call(Integer barcodes, StoreTypeInfo info, SmartCorpInfo corpInfo) {
+                                        BillManagerShow show = new BillManagerShow();
+                                        show.setBillNumber(bill.getBillNumber());
+                                        show.setBillType(info.getStoreTypeText());
+                                        show.setContactCorpName(corpInfo.getCorpName());
+                                        show.setCodeNumber(barcodes + "");
+                                        show.setIsUpload(bill.getIsUpload().equals("1"));
+                                        show.setDate(bill.getGenerateTime().substring(0, 10));
+                                        return show;
+                                    }
+                                });
+                    }
+                }).toList();
     }
 
     public Observable<BillManagerShow> queryBillByNumber(final String billNumber) {

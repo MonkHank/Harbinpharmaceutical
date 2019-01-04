@@ -78,7 +78,6 @@ public class LoginActivity extends BaseActivity implements LoginView, View.OnCli
 //        mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, volume, AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
     }
 
-
     @Override
     protected void onResume() {
         super.onResume();

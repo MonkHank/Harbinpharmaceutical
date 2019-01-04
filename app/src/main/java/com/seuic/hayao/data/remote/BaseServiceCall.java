@@ -47,8 +47,7 @@ public class BaseServiceCall {
             }
         }
 
-        SoapObject resultObject = webServiceCall(soapAction, envelope, 3);
-        return resultObject;
+        return webServiceCall(soapAction, envelope, 3);
     }
 
 

@@ -5,7 +5,7 @@ import com.seuic.hayao.view.BillManagerView;
 
 import java.util.ArrayList;
 
-public interface BillManagerPresenter extends IPresenter<BillManagerView> {
+public interface BillManagerPresenter{
     void queryByBillNumber(String billNumber);
 
     void queryByTime(String time);

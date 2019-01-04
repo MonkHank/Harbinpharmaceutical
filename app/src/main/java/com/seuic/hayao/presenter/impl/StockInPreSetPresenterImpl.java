@@ -23,18 +23,12 @@ public class StockInPreSetPresenterImpl extends BasePresenter<StockInPreSetView>
     private Subscription mSubscription2;
 
     public StockInPreSetPresenterImpl(StockInPreSetView view) {
+        super(view);
         mDataManager = DataManager.getInstance();
-        this.attachView(view);
-    }
-
-    @Override
-    public void attachView(StockInPreSetView view) {
-        this.mMvpView = view;
     }
 
     @Override
     public void detachView() {
-        this.mMvpView = null;
         if (mSubscription != null) mSubscription.unsubscribe();
         if (mSubscription1 != null) mSubscription1.unsubscribe();
         if (mSubscription2 != null) mSubscription1.unsubscribe();
@@ -74,7 +68,6 @@ public class StockInPreSetPresenterImpl extends BasePresenter<StockInPreSetView>
                     @Override
                     public void onError(Throwable e) {
                         getMvpView().showErrorMsg(e.getMessage());
-
                     }
 
                     @Override
