@@ -28,14 +28,14 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <receiver android:name=".device.BarCodeReceiver">
             <intent-filter android:priority="2147483647">
-                <action android:name="com.android.server.scannerservice.hayao.broadcast"></action>
+                <action android:name="com.android.server.scannerservice.hayao.broadcast"/>
             </intent-filter>
         </receiver>
         <receiver android:name=".service.UploadService$SyncOnConnectionAvailable">

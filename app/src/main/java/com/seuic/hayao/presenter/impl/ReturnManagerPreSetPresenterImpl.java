@@ -22,13 +22,8 @@ public class ReturnManagerPreSetPresenterImpl extends BasePresenter<ReturnManage
     private Subscription mSubscription2;
 
     public ReturnManagerPreSetPresenterImpl(ReturnManagerPreSetView view) {
+        super(view);
         mDataManager = DataManager.getInstance();
-        this.attachView(view);
-    }
-
-    @Override
-    public void attachView(ReturnManagerPreSetView view) {
-        this.mMvpView = view;
     }
 
     @Override

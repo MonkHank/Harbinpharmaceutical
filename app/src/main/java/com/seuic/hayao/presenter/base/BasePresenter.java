@@ -9,8 +9,16 @@ public class BasePresenter<T extends IBaseView> {
         return mMvpView != null;
     }
 
+    public BasePresenter(T mMvpView) {
+        this.mMvpView = mMvpView;
+    }
+
     protected T getMvpView() {
         return mMvpView;
+    }
+
+    protected void detachView() {
+        mMvpView = null;
     }
 
     protected void checkViewAttached() {

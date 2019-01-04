@@ -4,7 +4,7 @@ import com.seuic.hayao.modelbean.LoginInfo;
 import com.seuic.hayao.presenter.base.IPresenter;
 import com.seuic.hayao.view.LoginView;
 
-public interface LoginPresenter extends IPresenter<LoginView> {
+public interface LoginPresenter  {
     void login(LoginInfo info);
 
     String getLastAccount();

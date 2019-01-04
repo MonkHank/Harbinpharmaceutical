@@ -521,7 +521,11 @@ public class DatabaseHelper {
                 Cursor c = null;
                 try {
 //select  * from bills order by isupload asc limit 0,( select count(*) from bills where isupload = 0 )+50
-                    String sql = "select * from " + Db.BillsTable.TABLE_NAME + " where " + Db.BillsTable.COLUMN_CREATORID + " = ? " + " ORDER BY " + Db.BillsTable.COLUMN_ISUPLOAD + " ASC" + " limit 0,(select count(*) from " + Db.BillsTable.TABLE_NAME + " where " + Db.BillsTable.COLUMN_ISUPLOAD + " = 0 )+50";
+                    String sql = "select * from " + Db.BillsTable.TABLE_NAME +
+                            " where " + Db.BillsTable.COLUMN_CREATORID + " = ? " +
+                            " ORDER BY " + Db.BillsTable.COLUMN_ISUPLOAD +
+                            " ASC" + " limit 0,(select count(*) from " + Db.BillsTable.TABLE_NAME +
+                            " where " + Db.BillsTable.COLUMN_ISUPLOAD + " = 0 )+50";
                     c = mDb.query(sql, userId);
                     ArrayList<Bill> infos = new ArrayList<Bill>();
                     while (c.moveToNext()) {

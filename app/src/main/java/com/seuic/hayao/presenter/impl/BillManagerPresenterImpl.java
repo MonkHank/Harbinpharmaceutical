@@ -1,7 +1,6 @@
 package com.seuic.hayao.presenter.impl;
 
 import com.seuic.hayao.data.DataManager;
-import com.seuic.hayao.data.bean.Bill;
 import com.seuic.hayao.modelbean.BillManagerShow;
 import com.seuic.hayao.presenter.BillManagerPresenter;
 import com.seuic.hayao.presenter.base.BasePresenter;
@@ -24,18 +23,13 @@ public class BillManagerPresenterImpl extends BasePresenter<BillManagerView> imp
     private Subscription mSubscription5;
 
     public BillManagerPresenterImpl(BillManagerView view) {
+        super(view);
         mDataManager = DataManager.getInstance();
-        this.attachView(view);
-    }
-
-    @Override
-    public void attachView(BillManagerView view) {
-        this.mMvpView = view;
     }
 
     @Override
     public void detachView() {
-        this.mMvpView = null;
+        super.detachView();
         if (mSubscription1 != null) mSubscription1.unsubscribe();
         if (mSubscription2 != null) mSubscription2.unsubscribe();
         if (mSubscription3 != null) mSubscription3.unsubscribe();
@@ -94,23 +88,24 @@ public class BillManagerPresenterImpl extends BasePresenter<BillManagerView> imp
     @Override
     public void queryAll() {
         getMvpView().showloadingBar("正在加载单据信息...");
-        mSubscription3 = mDataManager.queryAllBills().observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<List<BillManagerShow>>() {
-            @Override
-            public void onCompleted() {
-            }
+        mSubscription3 = mDataManager.queryAllBills().observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<List<BillManagerShow>>() {
+                    @Override
+                    public void onCompleted() {
+                    }
 
-            @Override
-            public void onError(Throwable e) {
-                getMvpView().dissMissloadingBar();
-                getMvpView().showErrorMsg(e.getMessage());
-            }
+                    @Override
+                    public void onError(Throwable e) {
+                        getMvpView().dissMissloadingBar();
+                        getMvpView().showErrorMsg(e.getMessage());
+                    }
 
-            @Override
-            public void onNext(List<BillManagerShow> show) {
-                getMvpView().dissMissloadingBar();
-                getMvpView().updateBillList((ArrayList<BillManagerShow>) show);
-            }
-        });
+                    @Override
+                    public void onNext(List<BillManagerShow> show) {
+                        getMvpView().dissMissloadingBar();
+                        getMvpView().updateBillList((ArrayList<BillManagerShow>) show);
+                    }
+                });
     }
 
     @Override

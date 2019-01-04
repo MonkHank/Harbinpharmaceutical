@@ -101,7 +101,8 @@ public class ServiceCallAction extends BaseServiceCall implements IServiceInterf
         String methodName = "GetProfileInfo";
         SoapObject soapObject = new SoapObject(NAMESPACE, methodName);
         soapObject.addProperty("userName", userName);
-        initHeader(userName, password);//用户输入的用户名密码来初始化webservice请求头的验证，
+        //用户输入的用户名密码来初始化webservice请求头的验证，
+        initHeader(userName, password);
         SoapObject result = (SoapObject) webServiceAccess(methodName, soapObject).getProperty("GetProfileInfoResult");
         SmartProfileInfo info = new SmartProfileInfo();
         info.setUserId(Integer.parseInt(result.getProperty("UserId").toString()));

@@ -5,7 +5,7 @@ import com.seuic.hayao.presenter.base.IPresenter;
 import com.seuic.hayao.view.ReturnManagerPreSetView;
 import com.seuic.hayao.view.StockInPreSetView2;
 
-public interface ReturnManagerPresenter extends IPresenter<ReturnManagerPreSetView> {
+public interface ReturnManagerPresenter {
     void generateBillNumber();
 
     void initBillTypeName();
