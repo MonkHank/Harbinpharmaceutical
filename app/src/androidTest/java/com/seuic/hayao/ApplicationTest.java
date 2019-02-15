@@ -1,7 +1,6 @@
 package com.seuic.hayao;
 
-import android.app.Application;
-import android.test.ApplicationTestCase;
+import android.support.test.runner.AndroidJUnit4;
 import android.util.Log;
 
 import com.seuic.hayao.data.bean.SmartStoreCodeInfo;
@@ -11,6 +10,9 @@ import com.seuic.hayao.data.bean.StoreTypeInfo;
 import com.seuic.hayao.data.local.DatabaseHelper;
 import com.seuic.hayao.data.remote.ServiceCallAction;
 import com.seuic.hayao.enums.StoreKind;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,12 +27,9 @@ import rx.android.schedulers.AndroidSchedulers;
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
  */
-public class ApplicationTest extends ApplicationTestCase<Application> {
-    public ApplicationTest() {
-        super(Application.class);
-    }
-
-
+@RunWith(AndroidJUnit4.class)
+public class ApplicationTest  {
+    @Test
     public void test() throws Exception {
         ServiceCallAction action = ServiceCallAction.getInstance();
 //        action.GetBizCorpCount(21);
@@ -44,7 +43,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
 //        int count = action.GetBizCorpCount(action.GetProfileInfo("c1", "1").getCorpId());
 
     }
-
+    @Test
     public void test1() {
         ServiceCallAction action = ServiceCallAction.getInstance();
         try {
@@ -55,14 +54,14 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
 
     }
 
-
+    @Test
     public void test2() throws Exception {
         ServiceCallAction action = ServiceCallAction.getInstance();
         action.initHeader("c1", "1");
         action.GetBizCorpsPage(166100, 0, 1);
     }
 
-
+    @Test
     public void testsss() {
 
         Observable.interval(1, TimeUnit.SECONDS).buffer(3, TimeUnit.SECONDS).observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<List<Long>>() {
@@ -115,7 +114,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
 //        });
     }
 
-
+    @Test
     public void testUpload() throws Exception {
 
         ServiceCallAction action = ServiceCallAction.getInstance();
@@ -159,7 +158,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
 
     }
 
-
+    @Test
     public void test11() {
     }
 

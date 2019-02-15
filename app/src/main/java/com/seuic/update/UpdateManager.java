@@ -13,7 +13,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
-import android.os.Handler.Callback;
 import android.os.Message;
 import android.widget.Toast;
 
@@ -26,7 +25,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class UpdateManager implements Callback {
+public class UpdateManager implements Handler.Callback {
 
     private Context mContext;
     private Handler handler;

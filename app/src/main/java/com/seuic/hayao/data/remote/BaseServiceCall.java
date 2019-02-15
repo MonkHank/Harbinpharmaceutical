@@ -63,7 +63,7 @@ public class BaseServiceCall {
         envelope.bodyOut = rpc;
         envelope.dotNet = true;
         envelope.headerOut = getHeader();
-        envelope.setOutputSoapObject(soapObject);
+        envelope.setOutputSoapObject(rpc);
 
         SoapObject resultObject = webServiceCall(soapAction, envelope, 3);
         return resultObject;
@@ -130,5 +130,4 @@ public class BaseServiceCall {
 
         return headerElements;
     }
-
 }
